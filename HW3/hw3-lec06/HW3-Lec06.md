@@ -5,7 +5,7 @@ GitHub files: https://github.com/mackennayount/Yount-BMMB
 
 # Visualize the GFF file of your choice
 
-I chose to visualize *Listeria monocytogenes* EGD-e and I got the file from NCBI. Then, I loaded the greference enome into IGF as well as the  annotations. After that, I needed to separate just the genes into a new file and do the same with coding sequence regions.
+I chose to visualize *Listeria monocytogenes* EGD-e and I got the file from NCBI. Then, I loaded the greference enome into IGV as well as the  annotations. After that, I needed to separate just the genes into a new file and do the same with coding sequence regions.
 
 ```bash
 datasets download genome accession GCF_000196035.1 --include gff3,rna,cds,protein,genome,seq-report
@@ -31,6 +31,6 @@ code manual.gff
 -bash: code: command not found
 ```
 
-Because of this, I manually created a file (using 'touch') and manually opened it in Visual Studio Code to create the gff file. Once I visualized the final file in IGF, it looked like this:
+Because of this, I manually created a file (using 'touch') and manually opened it in Visual Studio Code to create the gff file. Once I visualized the final file in IGV, it looked like this:
 
 <img width="1440" alt="manual-gff" src="https://github.com/user-attachments/assets/72a77a82-e52b-490d-a394-1378c84ae4b3">
