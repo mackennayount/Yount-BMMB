@@ -3,22 +3,22 @@ set -uex
 
 # Define all variables at the top.
 
-# The NCBI acession number
-ACCESSION="GCF_000196035.1"
+# The NCBI RefSeq assembly number
+REFSEQ="GCF_000196035.1"
 
 # ------ All the actions follow ------
 
-# Download data by acession from NCBI and make sure all necessary files are included
-datasets download genome accession ${ACCESSION} --include gff3,rna,cds,protein,genome,seq-report
+# Download data by RefSeq assembly from NCBI and make sure all necessary files are included
+datasets download genome accession ${REFSEQ} --include gff3,rna,cds,protein,genome,seq-report
 
 # Unzip the dataset
 unzip ncbi_dataset.zip
 
 # Open and view the dataset
-cat ncbi_dataset/data/${ACCESSION}/genomic.gff | head
+cat ncbi_dataset/data/${REFSEQ}/genomic.gff | head
 
 # Remove all lines beginning with # and save to a new file
-cat ncbi_dataset/data/${ACCESSION}/genomic.gff | grep -v '^#' > mydata.gff
+cat ncbi_dataset/data/${REFSEQ}/genomic.gff | grep -v '^#' > mydata.gff
 
 # Separate gene and CDS features into diffeent files
 cat mydata.gff | awk ' $3=="gene" { print $0 }' > gene.gff
