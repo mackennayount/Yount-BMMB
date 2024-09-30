@@ -1,0 +1,247 @@
+mpy5101@A8-FD-MPY5101-M ~
+$ micromamba activate bioinfo
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~
+$ pwd
+/Users/mpy5101
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~
+$ cd ./bmmb/lec03
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ ls
+Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3
+Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3.gz
+anas.gff3
+features.txt
+lec03.txt
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ ls -l
+total 214944
+-rw-r--r--@ 1 mpy5101  PSU\Domain Users    47M Sep  7 20:15 Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3
+-rw-r--r--@ 1 mpy5101  PSU\Domain Users   6.7M Sep  7 20:13 Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3.gz
+-rw-r--r--  1 mpy5101  PSU\Domain Users    46M Sep  7 20:44 anas.gff3
+-rw-r--r--  1 mpy5101  PSU\Domain Users   4.6M Sep  7 20:24 features.txt
+-rw-r--r--@ 1 mpy5101  PSU\Domain Users   1.1K Sep  8 20:58 lec03.txt
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ cat Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3 | wc -l
+  547715
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ cat Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3 | head
+##gff-version 3
+##sequence-region   NOIK01000001.1 1 25320044
+##sequence-region   NOIK01000002.1 1 12866156
+##sequence-region   NOIK01000003.1 1 11111658
+##sequence-region   NOIK01000004.1 1 10633831
+##sequence-region   NOIK01000005.1 1 12840807
+##sequence-region   NOIK01000006.1 1 9623434
+##sequence-region   NOIK01000007.1 1 8447622
+##sequence-region   NOIK01000008.1 1 7925970
+##sequence-region   NOIK01000009.1 1 7532100
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ cat Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3 | grep NOIK | wc -l
+  473585
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ # this is how many features there are
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ cat Anas_zonorhyncha.ASM222487v1.112.abinitio.gff3 | grep -v '##sequence-' |head
+##gff-version 3
+#!genome-build  ASM222487v1
+#!genome-version ASM222487v1
+#!genome-date 2017-07
+#!genome-build-accession GCA_002224875.1
+#!genebuild-last-updated 2020-04
+NOIK01000001.1	ASM222487v1	region	1	25320044	.	.	ID=region:NOIK01000001.1;Alias=scaffold1
+###
+NOIK01000001.1	ensembl	mRNA	74	6837	.	+	.	ID=transcript:47404;Name=GENSCAN00000047404;version=1
+NOIK01000001.1	ensembl	exon	74	172	.	+	.	Parent=transcript:47404;Name=361260;exon_id=361260;version=1
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ cat anas.gff3 |head
+NOIK01000001.1	ASM222487v1	region	1	25320044	.	.	ID=region:NOIK01000001.1;Alias=scaffold1
+NOIK01000001.1	ensembl	mRNA	74	6837	.	+	.	ID=transcript:47404;Name=GENSCAN00000047404;version=1
+NOIK01000001.1	ensembl	exon	74	172	.	+	.	Parent=transcript:47404;Name=361260;exon_id=361260;version=1
+NOIK01000001.1	ensembl	exon	6631	6837	.	+	.	Parent=transcript:47404;Name=361261;exon_id=361261;version=1
+NOIK01000001.1	ensembl	mRNA	137524	243679	.	+	.	ID=transcript:47403;Name=GENSCAN00000047403;version=1
+NOIK01000001.1	ensembl	exon	137524	137843	.	+	.	Parent=transcript:47403;Name=361254;exon_id=361254;version=1
+NOIK01000001.1	ensembl	exon	176066	176098	.	+	.	Parent=transcript:47403;Name=361255;exon_id=361255;version=1
+NOIK01000001.1	ensembl	exon	188824	189010	.	+	.	Parent=transcript:47403;Name=361256;exon_id=361256;version=1
+NOIK01000001.1	ensembl	exon	220838	221178	.	+	.	Parent=transcript:47403;Name=361257;exon_id=361257;version=1
+NOIK01000001.1	ensembl	exon	221672	221735	.	+	.	Parent=transcript:47403;Name=361258;exon_id=361258;version=1
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ cat anas.gff3 | cut -f 3 | more
+region
+mRNA
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+mRNA
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+mRNA
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+mRNA
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+mRNA
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+exon
+(bioinfo) 
+mpy5101@A8-FD-MPY5101-M ~/bmmb/lec03
+$ cat anas.gff3 | cut -f 3 | sort | uniq -c | head
+379372 exon
+54035 mRNA
+20089 region
+(bioinfo) 
